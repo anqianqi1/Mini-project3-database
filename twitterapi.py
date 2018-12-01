@@ -100,6 +100,8 @@ if __name__ == '__main__':
         url.append(i)
     # print(url)
 
+ 
+#     this is step is to convert image urls and labels into a two dimentional array which is the form to store data into mysql
     label=[]
     for i in range(7):
         label.append(detect_labels(str(i)+'.jpg'))
@@ -110,14 +112,17 @@ if __name__ == '__main__':
     # print(database)
 
 # mysql database
+# to create a mysql database
     mydb= mysql.connector.connect(
     host="localhost",
-    user="anqi",
-    passwd="bu",
+    user="username",
+    passwd="userpassword",
     database="twitterdata"
     )
     print(mydb)
 
+    
+# to create database and tables
     mycursor=mydb.cursor()
     mycursor.execute("CREATE DATABASE twitterdata")
     mycursor.execute("SHOW DATABASES")
@@ -145,6 +150,7 @@ if __name__ == '__main__':
 
 
 # mongodb data
+# using mongodb to store data, creat database and tables
     myclient = pymongo.MongoClient("mongodb://localhost:27017/")
     mydb = myclient["twitterdata"]
     mycol = mydb["anqiguo3"]
