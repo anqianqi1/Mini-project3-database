@@ -13,10 +13,10 @@ import mysql.connector
 import pymongo
 
 #These are my Twitter API key
-consumer_key = "jTC38AzwtgHKzLvusvOHm1ni4"
-consumer_secret = "H1WnO5q4oIq0VRs9coqJ5BjSmkIcx2DEhoXBOz77JaI7k0wboJ"
-access_key = "1039258380504846341-VzdOeFASNH5Kr2DSqLTtg7yIfIVEVy"
-access_secret = "Fcwy6ArMGLJoIrEZUOT4Rp4J8E36FOt6nNPUF5NABEBWh"
+consumer_key = ""
+consumer_secret = ""
+access_key = ""
+access_secret = ""
 
 
 #This is the code which one I want to get all of tweets from my twitter account
@@ -109,34 +109,34 @@ if __name__ == '__main__':
     database = [list(a) for a in zip(url, label)]
     # print(database)
 
-# # mysql database
-#     mydb= mysql.connector.connect(
-#     host="localhost",
-#     user="anqi",
-#     passwd="bu",
-#     database="twitterdata"
-#     )
-#     print(mydb)
+# mysql database
+    mydb= mysql.connector.connect(
+    host="localhost",
+    user="anqi",
+    passwd="bu",
+    database="twitterdata"
+    )
+    print(mydb)
 
-#     mycursor=mydb.cursor()
-#     # mycursor.execute("CREATE DATABASE twitterdata")
-#     # mycursor.execute("SHOW DATABASES")
-#     # for db in mycursor:
-#     #     print(db)
-#     # mycursor.execute("CREATE TABLE anqiguo3 (image VARCHAR(225) , Labels VARCHAR(225))")
+    mycursor=mydb.cursor()
+    mycursor.execute("CREATE DATABASE twitterdata")
+    mycursor.execute("SHOW DATABASES")
+    for db in mycursor:
+        print(db)
+    mycursor.execute("CREATE TABLE anqiguo3 (image VARCHAR(225) , Labels VARCHAR(225))")
 
-#     # mycursor.execute("SHOW TABLES")
-#     # for tb in mycursor:
-#         # print(tb)
+    mycursor.execute("SHOW TABLES")
+    for tb in mycursor:
+        print(tb)
 
-# # to store data into mysql 
-#     # for i in range(0,len(database)):
-#     #     print(database[i][0])
-#     #     sqlFormula = "INSERT INTO anqiguo3(image,Labels) VALUES (%s,%s)"
-#     #     temp=database[i][0],database[i][1]
-#     #     # print(temp)
-#     #     mycursor.execute(sqlFormula,temp)
-#     #     mydb.commit()
+# to store data into mysql 
+    for i in range(0,len(database)):
+        print(database[i][0])
+        sqlFormula = "INSERT INTO anqiguo3(image,Labels) VALUES (%s,%s)"
+        temp=database[i][0],database[i][1]
+        # print(temp)
+        mycursor.execute(sqlFormula,temp)
+        mydb.commit()
 
     databasedict=dict(database)
     # for key in databasedict :   
